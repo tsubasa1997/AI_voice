@@ -16,7 +16,6 @@ class ChatState with _$ChatState {
   const factory ChatState({
     @Default(<OpenAIChatCompletionChoiceMessageModel>[]) List<OpenAIChatCompletionChoiceMessageModel> messages,
     @Default(true) bool isOn,
-    @Default(false) bool hasBuild,
   }) = _ChatState;
 }
 

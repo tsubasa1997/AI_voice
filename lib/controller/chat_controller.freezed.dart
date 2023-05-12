@@ -19,7 +19,6 @@ mixin _$ChatState {
   List<OpenAIChatCompletionChoiceMessageModel> get messages =>
       throw _privateConstructorUsedError;
   bool get isOn => throw _privateConstructorUsedError;
-  bool get hasBuild => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatStateCopyWith<ChatState> get copyWith =>
@@ -31,10 +30,7 @@ abstract class $ChatStateCopyWith<$Res> {
   factory $ChatStateCopyWith(ChatState value, $Res Function(ChatState) then) =
       _$ChatStateCopyWithImpl<$Res, ChatState>;
   @useResult
-  $Res call(
-      {List<OpenAIChatCompletionChoiceMessageModel> messages,
-      bool isOn,
-      bool hasBuild});
+  $Res call({List<OpenAIChatCompletionChoiceMessageModel> messages, bool isOn});
 }
 
 /// @nodoc
@@ -52,7 +48,6 @@ class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
   $Res call({
     Object? messages = null,
     Object? isOn = null,
-    Object? hasBuild = null,
   }) {
     return _then(_value.copyWith(
       messages: null == messages
@@ -62,10 +57,6 @@ class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
       isOn: null == isOn
           ? _value.isOn
           : isOn // ignore: cast_nullable_to_non_nullable
-              as bool,
-      hasBuild: null == hasBuild
-          ? _value.hasBuild
-          : hasBuild // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -78,10 +69,7 @@ abstract class _$$_ChatStateCopyWith<$Res> implements $ChatStateCopyWith<$Res> {
       __$$_ChatStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<OpenAIChatCompletionChoiceMessageModel> messages,
-      bool isOn,
-      bool hasBuild});
+  $Res call({List<OpenAIChatCompletionChoiceMessageModel> messages, bool isOn});
 }
 
 /// @nodoc
@@ -97,7 +85,6 @@ class __$$_ChatStateCopyWithImpl<$Res>
   $Res call({
     Object? messages = null,
     Object? isOn = null,
-    Object? hasBuild = null,
   }) {
     return _then(_$_ChatState(
       messages: null == messages
@@ -107,10 +94,6 @@ class __$$_ChatStateCopyWithImpl<$Res>
       isOn: null == isOn
           ? _value.isOn
           : isOn // ignore: cast_nullable_to_non_nullable
-              as bool,
-      hasBuild: null == hasBuild
-          ? _value.hasBuild
-          : hasBuild // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -122,8 +105,7 @@ class _$_ChatState with DiagnosticableTreeMixin implements _ChatState {
   const _$_ChatState(
       {final List<OpenAIChatCompletionChoiceMessageModel> messages =
           const <OpenAIChatCompletionChoiceMessageModel>[],
-      this.isOn = true,
-      this.hasBuild = false})
+      this.isOn = true})
       : _messages = messages;
 
   final List<OpenAIChatCompletionChoiceMessageModel> _messages;
@@ -138,13 +120,10 @@ class _$_ChatState with DiagnosticableTreeMixin implements _ChatState {
   @override
   @JsonKey()
   final bool isOn;
-  @override
-  @JsonKey()
-  final bool hasBuild;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ChatState(messages: $messages, isOn: $isOn, hasBuild: $hasBuild)';
+    return 'ChatState(messages: $messages, isOn: $isOn)';
   }
 
   @override
@@ -153,8 +132,7 @@ class _$_ChatState with DiagnosticableTreeMixin implements _ChatState {
     properties
       ..add(DiagnosticsProperty('type', 'ChatState'))
       ..add(DiagnosticsProperty('messages', messages))
-      ..add(DiagnosticsProperty('isOn', isOn))
-      ..add(DiagnosticsProperty('hasBuild', hasBuild));
+      ..add(DiagnosticsProperty('isOn', isOn));
   }
 
   @override
@@ -163,14 +141,12 @@ class _$_ChatState with DiagnosticableTreeMixin implements _ChatState {
         (other.runtimeType == runtimeType &&
             other is _$_ChatState &&
             const DeepCollectionEquality().equals(other._messages, _messages) &&
-            (identical(other.isOn, isOn) || other.isOn == isOn) &&
-            (identical(other.hasBuild, hasBuild) ||
-                other.hasBuild == hasBuild));
+            (identical(other.isOn, isOn) || other.isOn == isOn));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_messages), isOn, hasBuild);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_messages), isOn);
 
   @JsonKey(ignore: true)
   @override
@@ -182,15 +158,12 @@ class _$_ChatState with DiagnosticableTreeMixin implements _ChatState {
 abstract class _ChatState implements ChatState {
   const factory _ChatState(
       {final List<OpenAIChatCompletionChoiceMessageModel> messages,
-      final bool isOn,
-      final bool hasBuild}) = _$_ChatState;
+      final bool isOn}) = _$_ChatState;
 
   @override
   List<OpenAIChatCompletionChoiceMessageModel> get messages;
   @override
   bool get isOn;
-  @override
-  bool get hasBuild;
   @override
   @JsonKey(ignore: true)
   _$$_ChatStateCopyWith<_$_ChatState> get copyWith =>
