@@ -1,2 +1,2 @@
-# gpt_voice
- 
+OpenAIのAPIとVoiceVoxのAPIを組み合わせることで質問に対してのAIの回答が
+合成音声で返答されるモバイルアプリです。
