@@ -39,7 +39,7 @@ class _InputChatTextState extends ConsumerState<InputChatText> {
                 controller: widget.textEditingController,
                 autofocus: true,
                 decoration: const InputDecoration(
-                  hintText: 'ずんだもんに質問してください',
+                  hintText: '質問してください',
                   border: InputBorder.none,
                 ),
               ),
