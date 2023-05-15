@@ -9,13 +9,13 @@ class CharacterCard extends ConsumerWidget {
     required this.name,
     required this.icon,
     required this.id,
-    required this.localFile,
+    required this.localVoice,
   });
 
   final String id;
   final String name;
   final String icon;
-  final String localFile;
+  final String localVoice;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,9 +30,9 @@ class CharacterCard extends ConsumerWidget {
                   id: id,
                   name: name,
                   icon: icon,
-                  localFile: localFile,
+                  localFile: localVoice,
                   onBuild: Future((){
-                    ref.read(chatStateProvider.notifier).firstContact(name, id, localFile);
+                    ref.read(chatStateProvider.notifier).firstContact(name, id, localVoice);
                   }),
                 );
               },

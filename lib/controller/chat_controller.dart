@@ -28,7 +28,7 @@ class ChatStateNotifier extends StateNotifier<ChatState> {
 
   final Ref ref;
 
-  Future<void> firstContact(String name,String id,String localFile) async {
+  Future<void> firstContact(String name,String id,String localVoice) async {
     String firstContent = 'こんにちは、$nameです。ご用件は何でしょうか。';
     final newUserMessage = OpenAIChatCompletionChoiceMessageModel(
       content: firstContent,
@@ -39,7 +39,7 @@ class ChatStateNotifier extends StateNotifier<ChatState> {
     state = state.copyWith(messages: messages);
 
     AssetsAudioPlayer.newPlayer().open(
-      Audio(localFile),
+      Audio(localVoice),
       showNotification: true,
     );
   }
@@ -52,8 +52,7 @@ class ChatStateNotifier extends StateNotifier<ChatState> {
   Future<void> highSpeedApi(String content,String id) async {
     await dotenv.load(fileName: ".env");
     String voiceApi = dotenv.env['VOICE_APIKEY']!;
-    String text = content;
-    String textUrl = 'https://deprecatedapis.tts.quest/v2/voicevox/audio/?text=$text&key=$voiceApi&speaker=$id';
+    String textUrl = 'https://deprecatedapis.tts.quest/v2/voicevox/audio/?text=$content&key=$voiceApi&speaker=$id';
     final url = Uri.parse(textUrl);
     final response = await http.get(url);
     if (response.statusCode != 200) {
@@ -70,8 +69,7 @@ class ChatStateNotifier extends StateNotifier<ChatState> {
   }
 
   Future<void> lowSpeedApi(String content,String id) async {
-    String text = content;
-    String textUrl = 'https://api.tts.quest/v1/voicevox/?text=$text&speaker=$id}';
+    String textUrl = 'https://api.tts.quest/v1/voicevox/?text=$content&speaker=$id}';
     final url = Uri.parse(textUrl);
 
     final response = await http.get(url);
@@ -124,7 +122,5 @@ class ChatStateNotifier extends StateNotifier<ChatState> {
       }
     }
   }
-
-
 
 }
