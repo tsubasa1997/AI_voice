@@ -28,7 +28,7 @@ class ChatStateNotifier extends StateNotifier<ChatState> {
 
   final Ref ref;
 
-  Future<void> firstContact(String name,String id,String localVoice) async {
+  void firstContact(String name,String id,String localVoice) {
     String firstContent = 'こんにちは、$nameです。ご用件は何でしょうか。';
     final newUserMessage = OpenAIChatCompletionChoiceMessageModel(
       content: firstContent,
@@ -44,7 +44,7 @@ class ChatStateNotifier extends StateNotifier<ChatState> {
     );
   }
 
-  Future<void> voiceApiSwitch() async {
+  void voiceApiSwitch() {
     final isOn = state.isOn;
     state = state.copyWith(isOn: !isOn);
   }
